@@ -1,0 +1,33 @@
+## caculation_2L mysql创建
+ -- drop table if exists gac_lzl.Sn_SlowChgLoad;
+ -- TRUNCATE TABLE gac_lzl.Sn_SlowChgLoad;
+ CREATE TABLE gac_lzl.Sn_SlowChgLoad
+ (
+ 	vin VARCHAR(17) NULL COMMENT '',
+ 	sampleTime VARCHAR(13) NULL COMMENT '',
+ 	Sn TINYINT(1) NULL COMMENT '1-静置；2-充电；3-放电；4-行驶；others-其他场景',
+ 	Sn_Label_1L TINYINT(2) NULL COMMENT '10-预留；21-慢充；22快充；30-预留；41-怠速；42-行车',
+ 	Sn_Label_2L SMALLINT(3) NULL COMMENT '100-预留；210-预留；220-预留；300-预留；410-预留；420-预留',
+ 	`date` DATE NULL COMMENT '',
+ 	Sn_start_time VARCHAR(8) NULL COMMENT '场景开始时间',
+ 	Sn_end_time VARCHAR(8) NULL COMMENT '场景结束时间',
+ 	Sn_T FLOAT(7,4) NULL COMMENT '场景时间长度(h)',
+
+ 	Sn_sample_count INT(7) NULL COMMENT '有效采样数据次数',
+
+ 	Data_Validity FLOAT(8,5) NULL COMMENT '有效数据占比',
+
+	Sn_SlowChgLoad TINYINT(1) NULL COMMENT '',
+
+ 	TEL_Latitude FLOAT(12,9) NULL COMMENT '',
+ 	TEL_Longitude FLOAT(12,8) NULL COMMENT '',
+
+ 	vintype TINYINT(1) NULL COMMENT '',
+ 	sub_vintype TINYINT(1) NULL COMMENT '配置：3-60kW,4-50kW',
+ 	car_usage TINYINT(1) NULL COMMENT '车辆用途：0-私家车1-出租车,2未识别',
+ 	province_his VARCHAR(20) NULL COMMENT '',
+ 	city_his VARCHAR(20) NULL COMMENT '',
+
+ 	Sn_Count INT(17) NULL COMMENT ''
+ )
+ engine = innodb, charset = utf8, comment = "";
